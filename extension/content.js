@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Hide other users starring/forking your repos
 	{
 		const hideStarsOwnRepos = () => {
-			const items = Array.from(document.querySelectorAll('#dashboard .news .watch_started, #dashboard .news .fork'));
+			const items = [document.querySelectorAll('#dashboard .news .watch_started, #dashboard .news .fork')];
 
 			for (const item of items) {
 				if (item.querySelector('.title a[href^="/' + username + '"')) {
