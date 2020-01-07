@@ -1,9 +1,27 @@
+'use strict';
+const path = location.pathname;
+const isDashboard = path === '/';
+const isRepo = /^\/.*\/.*\//.test(location.pathname)
+const isPR = () => /^\/.*\/.*\/pull\/\d+$/.test(location.pathname);
+const repoName = path.split('/')[2];
+
+function linkifyBranchRefs() {
+	$('.commit-ref').each((i, el) => {
+		const parts = $(el).find('.css-truncate-target');
+		const username = parts.eq(0).text();
+		const branch = parts.eq(1).text();
+		$(el).wrap(`<a href="https://github.com/${username}/${repoName}/tree/${branch}">`);
+	});
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-	'use strict';
 
 	const username = document.querySelector('meta[name="user-login"]').getAttribute('content');
 
 	// Hide other users starring/forking your repos
+	if (isDashboard) {
+
+
 	{
 		const hideStarsOwnRepos = () => {
 			const items = [document.querySelectorAll('#dashboard .news .watch_started, #dashboard .news .fork')];
@@ -31,5 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		btn.click();
 		setTimeout(more, 200);
-	})();
+		})();
+	}
+
+	if (isRepo) {
+		githubInjection(window, () => {
+			if (isPR) {
+				linkifyBranchRefs();
+			}
+		});
+	}
 });
