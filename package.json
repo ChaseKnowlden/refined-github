@@ -8,7 +8,7 @@
   },
   "keywords": [],
   "author": "ChaseKnowlden <knowlden887@gmail.com> (github.com/ChaseKnowlden)",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@primer/octicons": "^9.3.1",
     "blur-accessibly": "^0.9.1",
