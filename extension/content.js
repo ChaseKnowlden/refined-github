@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const username = document.querySelector('meta[name="user-login"]').getAttribute('content');
 
-	// hide other users starring/forking your repos
+	// Hide other users starring/forking your repos
 	{
 		const hideStarsOwnRepos = () => {
 			const items = Array.from(document.querySelectorAll('#dashboard .news .watch_started, #dashboard .news .fork'));
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			.observe(document.querySelector('#dashboard .news'), {childList: true});
 	}
 
-	// expand all the news feed pages
+	// Expand all the news feed pages
 	(function more() {
 		const btn = document.querySelector('.ajax-pagination-btn');
 
@@ -32,5 +32,4 @@ document.addEventListener('DOMContentLoaded', () => {
 		btn.click();
 		setTimeout(more, 200);
 	})();
-
-})
+});
