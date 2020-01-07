@@ -1,0 +1,7 @@
+.file-navigation-options a[href^="github-mac"] {
+	display: none !important;
+}
+
+.reponav a[href$="/pulse"] {
+	display: none !important;
+}
