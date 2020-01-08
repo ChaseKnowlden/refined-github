@@ -19,17 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// Hide other users starring/forking your repos
 	if (isDashboard) {
-	{
-		const hideStarsOwnRepos = () => {
-			$('#dashboard .news .watch_started, #dashboard .news .fork')
-				.has(`.title a[href^="/${username}"`)
-				.css('display', 'none');
-
-			for (const item of items) {
-				if (item.querySelector('.title a[href^="/' + username + '"')) {
-					item.style.display = 'none';
-				}
-			}
+		{
+			const hideStarsOwnRepos = () => {
+				$('#dashboard .news .watch_started, #dashboard .news .fork')
+					.has(`.title a[href^="/${username}"`)
+					.css('display', 'none');
 		};
 
 		hideStarsOwnRepos();
