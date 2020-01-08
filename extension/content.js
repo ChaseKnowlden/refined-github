@@ -1,3 +1,4 @@
+/* globals gitHubInjection */
 'use strict';
 const path = location.pathname;
 const isDashboard = path === '/';
@@ -21,9 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	if (isDashboard) {
 		{
 			const hideStarsOwnRepos = () => {
-				$('#dashboard .news .watch_started, #dashboard .news .fork')
-					.has(`.title a[href^="/${username}"`)
-					.css('display', 'none');
+			$('#dashboard .news .watch_started, #dashboard .news .fork')
+			.has(`.title a[href^="/${username}"`)
+			.css('display', 'none');
 		};
 
 		hideStarsOwnRepos();
@@ -42,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			btn.click();
 			setTimeout(more, 200);
-		})();
+	})();
 			}
 
 	if (isRepo) {
