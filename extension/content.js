@@ -22,29 +22,29 @@ document.addEventListener('DOMContentLoaded', () => {
 	if (isDashboard) {
 		{
 			const hideStarsOwnRepos = () => {
-			$('#dashboard .news .watch_started, #dashboard .news .fork')
-			.has(`.title a[href^="/${username}"`)
-			.css('display', 'none');
-		};
+				$('#dashboard .news .watch_started, #dashboard .news .fork')
+					.has(`.title a[href^="/${username}"`)
+					.css('display', 'none');
+			};
 
-		hideStarsOwnRepos();
+			hideStarsOwnRepos();
 
-		new MutationObserver(() => hideStarsOwnRepos())
-			.observe($('#dashboard .news').get(0), {childList: true});
-	}
-
-	// Expand all the news feed pages
-	(function more() {
-		const btn = $('.ajax-pagination-btn').get(0);
-
-		if (!btn) {
-			return;
+			new MutationObserver(() => hideStarsOwnRepos())
+				.observe($('#dashboard .news').get(0), {childList: true});
 		}
+
+		// Expand all the news feed pages
+		(function more() {
+			const btn = $('.ajax-pagination-btn').get(0);
+
+			if (!btn) {
+				return;
+			}
 
 			btn.click();
 			setTimeout(more, 200);
-	})();
-			}
+		})();
+	}
 
 	if (isRepo) {
 		gitHubInjection(window, () => {
